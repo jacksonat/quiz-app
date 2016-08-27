@@ -17,5 +17,4 @@ class Question: NSObject {
     var lesson: Int = 0
     var feedback: String = ""
     
-    
 }

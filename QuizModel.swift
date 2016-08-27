@@ -9,5 +9,19 @@
 import UIKit
 
 class QuizModel: NSObject {
+    
+    func getQuestions() -> [Question] {
+    
+        // Questions to return
+        var questions: [Question] = [Question]()
+        
+        // TODO: Get JSON file
+        
+        // TODO: Parse JSON file
+        
+        // TODO: Return list of question objects
+        return questions
+    
+    }
 
 }
