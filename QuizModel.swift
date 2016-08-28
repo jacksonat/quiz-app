@@ -12,12 +12,22 @@ class QuizModel: NSObject {
     
     func getQuestions() -> [Question] {
     
-        // Array of question objects
+        // Array of Question objects
         var questions: [Question] = [Question]()
         
         // Get JSON array of dictionaries
+        let jsonObjects: [NSDictionary] = self.getLocalJsonFile()
         
         // Loop through each dictionary and assign values to our question objects
+        var index: Int
+       
+        //  FIXIT: Replace this with a for in loop. Make "item" what you assign to the jsonDictionary
+        for index = 0; index < jsonObjects.count; index += 1 {
+        
+            // Currect JSON dictionary
+            let jsonDictionay: NSDictionary = jsonObjects[index]
+            
+        }
         
         // Return list of question objects
         return questions
@@ -40,13 +50,22 @@ class QuizModel: NSObject {
             
             if let actualJsonData = jsonData {
             
-                // NSData exists; use the NSJSON serialization classes to parse the data and create the array of dictionaries
-                // let arrayOfDictionaries: [NSDictionary] =
-            
+                do {
+                    
+                    // NSData exists; use the NSJSON serialization classes to parse the data and create the array of dictionaries
+                    let arrayOfDictionaries: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(actualJsonData, options: NSJSONReadingOptions.MutableContainers) as! [NSDictionary]
+                    
+                    return arrayOfDictionaries
+                
+                } catch {
+                
+                    // There was an error parsing the JSON file
+                
+                }
             
             } else {
             
-                // Handle error for NSData does not exist
+                //NSData does not exist
             
             }
         
@@ -56,6 +75,70 @@ class QuizModel: NSObject {
         
         }
         
+        // Return an empty array for the error cases (ie, function hasn't already returned the arrayOfDictionaries successfully above
+        return [NSDictionary]() // the return type expected by the function
+        
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
