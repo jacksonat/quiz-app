@@ -19,13 +19,10 @@ class QuizModel: NSObject {
         let jsonObjects: [NSDictionary] = self.getLocalJsonFile()
         
         // Loop through each dictionary and assign values to our question objects
-        var index: Int
-       
-        //  FIXIT: Replace this with a for in loop. Make "item" what you assign to the jsonDictionary
-        for index = 0; index < jsonObjects.count; index += 1 {
+        for i in 0..<jsonObjects.count {
         
             // Current JSON dictionary
-            let jsonDictionary: NSDictionary = jsonObjects[index]
+            let jsonDictionary: NSDictionary = jsonObjects[i]
             
             // Create a question object
             let q: Question = Question()
