@@ -24,8 +24,22 @@ class QuizModel: NSObject {
         //  FIXIT: Replace this with a for in loop. Make "item" what you assign to the jsonDictionary
         for index = 0; index < jsonObjects.count; index += 1 {
         
-            // Currect JSON dictionary
-            let jsonDictionay: NSDictionary = jsonObjects[index]
+            // Current JSON dictionary
+            let jsonDictionary: NSDictionary = jsonObjects[index]
+            
+            // Create a question object
+            let q: Question = Question()
+            
+            // Assign the values of each key value pair to the question object
+            q.questionText = jsonDictionary["question"] as! String // when you pull the value out of dictionary it doesn't know what type it is. You need to type cast into the type that your object property type is (ie: q.questionText is a String)
+            q.answers = jsonDictionary["answers"] as! [String]
+            q.correctAnswerIndex = jsonDictionary["correctIndex"] as! Int
+            q.module = jsonDictionary["module"] as! Int
+            q.lesson = jsonDictionary["lesson"] as! Int
+            q.feedback = jsonDictionary["feedback"] as! String
+            
+            // Add the question to the question array
+            questions.append(q)
             
         }
         
