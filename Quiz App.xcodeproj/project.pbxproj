@@ -15,6 +15,7 @@
 		DB16AC321D71943600E8E41A /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AC311D71943600E8E41A /* QuizModel.swift */; };
 		DB16AC341D71948E00E8E41A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AC331D71948E00E8E41A /* Question.swift */; };
 		DB16AC381D72BEEA00E8E41A /* QuestionData.json in Resources */ = {isa = PBXBuildFile; fileRef = DB16AC371D72BEEA00E8E41A /* QuestionData.json */; };
+		DB16AC3C1D74392200E8E41A /* AnswerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16AC3B1D74392200E8E41A /* AnswerButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DB16AC311D71943600E8E41A /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizModel.swift; path = ../QuizModel.swift; sourceTree = "<group>"; };
 		DB16AC331D71948E00E8E41A /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		DB16AC371D72BEEA00E8E41A /* QuestionData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionData.json; sourceTree = "<group>"; };
+		DB16AC3B1D74392200E8E41A /* AnswerButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				DB16AC1F1D71918800E8E41A /* AppDelegate.swift */,
 				DB16AC211D71918800E8E41A /* ViewController.swift */,
+				DB16AC3B1D74392200E8E41A /* AnswerButtonView.swift */,
 				DB16AC231D71918800E8E41A /* Main.storyboard */,
 				DB16AC261D71918800E8E41A /* Assets.xcassets */,
 				DB16AC281D71918800E8E41A /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB16AC3C1D74392200E8E41A /* AnswerButtonView.swift in Sources */,
 				DB16AC221D71918800E8E41A /* ViewController.swift in Sources */,
 				DB16AC341D71948E00E8E41A /* Question.swift in Sources */,
 				DB16AC321D71943600E8E41A /* QuizModel.swift in Sources */,
@@ -298,6 +302,7 @@
 				DB16AC301D71918800E8E41A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
