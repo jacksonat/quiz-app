@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     var currentQuestion: Question?
     
+    var answerButtonArray: [AnswerButtonView] = [AnswerButtonView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -62,8 +64,48 @@ class ViewController: UIViewController {
     }
     
     func createAnswerButtons() {
-    
         
+        var index: Int
+    
+        // This for loop needs to be rewritten but doing a for in loop is creating problems
+        for index = 0; index < self.currentQuestion?.answers.count; index += 1 {
+        
+        // Create an answer button view
+            
+            let answer: AnswerButtonView = AnswerButtonView()
+            
+            answer.translatesAutoresizingMaskIntoConstraints = false
+            
+            // Place it into the content view
+            self.scrollViewContentView.addSubview(answer)
+            
+            // Add constraints depending on what number button it is
+            let heightConstraint: NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+            
+            answer.addConstraint(heightConstraint)
+            
+            let leftMarginConstraint: NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
+            
+            let rightMarginConstraint: NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+            
+            // Setting top margin as 100 * index, ie the button count in your for loop. Beware if you rewrite the for loop
+            
+            let topMarginConstraint: NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: CGFloat(101 * index))
+            
+            self.scrollViewContentView.addConstraints([leftMarginConstraint, rightMarginConstraint, topMarginConstraint])
+            
+            
+            // Set the answer text for it
+            
+            
+            
+            // Add it to the button array
+        
+        }
+            
+        
+        
+        // Adjust the height of the content view so that it can scroll if need be
     
     }
         
