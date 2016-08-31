@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             self.scrollViewContentView.addSubview(answer)
             
             // Add a tap gesture recognizer
-            let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "answerTapped:")
+            let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.answerTapped(_:)))
             
             answer.addGestureRecognizer(tapGesture)
             
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     func answerTapped(gesture: UITapGestureRecognizer) {
     
         // Get access to the answer button that was tapped
-        let answerButtonThatWasTapped: AnswerButtonView? = gesture.view as! AnswerButtonView
+        let answerButtonThatWasTapped: AnswerButtonView? = gesture.view as? AnswerButtonView
         
         if let actualButton = answerButtonThatWasTapped {
         
@@ -132,10 +132,12 @@ class ViewController: UIViewController {
                 if foundAnswerIndex == self.currentQuestion!.correctAnswerIndex {
                 
                     // User got it correct
+                    print("correct")
                 
                 } else {
                 
                     // User got it wrong
+                    print("incorrect")
                 
                 }
             
