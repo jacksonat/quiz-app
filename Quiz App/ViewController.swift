@@ -69,11 +69,24 @@ class ViewController: UIViewController {
         // Check that there is a current question
         if let actualCurrentQuestion = self.currentQuestion {
             
+            // Add animations
+            // Set question to be invisible
+            self.questionLabel.alpha = 0
+            self.moduleLabel.alpha = 0
+            
             // Update the question text
             self.questionLabel.text = actualCurrentQuestion.questionText
             
             // Update the module and lesson label
             self.moduleLabel.text = String(format: "Module: %i Lesson: %i", actualCurrentQuestion.module, actualCurrentQuestion.lesson)
+            
+            // Reveal the question
+            UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                
+                self.questionLabel.alpha = 1
+                self.moduleLabel.alpha = 1
+                
+                }, completion: nil)
             
             // Create and display the answer button views
             self.createAnswerButtons()
