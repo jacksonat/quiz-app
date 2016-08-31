@@ -90,7 +90,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGm-0j-Iix">
                                         <rect key="frame" x="0.0" y="490" width="540" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.1108379856010215" green="0.3333333432674408" blue="0.15727920383444996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8PQ-zp-khs"/>
                                         </constraints>
@@ -103,7 +103,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.80410571808510634" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.18756712075823967" green="0.40518140361226784" blue="0.29568690632062794" alpha="0.80410571808510634" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rGm-0j-Iix" secondAttribute="trailing" id="NMV-au-lJV"/>
                                     <constraint firstItem="rGm-0j-Iix" firstAttribute="leading" secondItem="gs7-60-u22" secondAttribute="leading" id="WrZ-IT-pMe"/>

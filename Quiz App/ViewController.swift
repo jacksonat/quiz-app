@@ -168,11 +168,21 @@ class ViewController: UIViewController {
                     // User got it correct
                     self.resultTitleLabel.text = "Correct!"
                     
+                    // Change background color of result view and button
+                    self.resultView.backgroundColor = UIColor(red: 43/255, green: 85/255, blue: 51/255, alpha: 0.8)
+                    
+                    self.nextButton.backgroundColor = UIColor(red: 28/255, green: 85/255, blue: 40/255, alpha: 1)
+                    
                     // Increment user score
                     self.numberCorrect += 1
                 
                 } else {
                 
+                    // Change background color of result view and button
+                    self.resultView.backgroundColor = UIColor(red: 85/255, green: 19/255, blue: 12/255, alpha: 0.8)
+                    
+                    self.nextButton.backgroundColor = UIColor(red: 58/255, green: 0/255, blue: 16/255, alpha: 1)
+                    
                     // User got it wrong
                     self.resultTitleLabel.text = "Incorrect"
                 
