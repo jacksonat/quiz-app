@@ -65,10 +65,12 @@ class ViewController: UIViewController {
     
     func createAnswerButtons() {
         
-        var index: Int
-    
+        // THIS COMMENTED CODE CAN NOW ALL GO
+        // var index: Int
         // This for loop needs to be rewritten but doing a for in loop is creating problems
-        for index = 0; index < self.currentQuestion?.answers.count; index += 1 {
+        //for index = 0; index < self.currentQuestion?.answers.count; index += 1 {
+        
+        for index in 0..<self.currentQuestion!.answers.count {
         
         // Create an answer button view
             
@@ -96,17 +98,20 @@ class ViewController: UIViewController {
             
             
             // Set the answer text for it
-            
-            
+            let answerText = self.currentQuestion!.answers[index]
+            answer.setAnswerText(answerText)
             
             // Add it to the button array
+            self.answerButtonArray.append(answer)
         
         }
-            
-        
         
         // Adjust the height of the content view so that it can scroll if need be
-    
+        let contentViewHeight: NSLayoutConstraint = NSLayoutConstraint(item: self.scrollViewContentView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: CGFloat(self.currentQuestion!.answers.count), constant: 101)
+        
+        // Add constraint to content view
+        self.scrollViewContentView.addConstraint(contentViewHeight)
+        
     }
         
     override func didReceiveMemoryWarning() {

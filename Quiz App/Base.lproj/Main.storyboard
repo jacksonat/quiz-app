@@ -51,7 +51,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6O-fy-lrQ" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.1647058874" green="0.98039221759999995" blue="0.50196081400000003" alpha="1" colorSpace="deviceRGB"/>
                                         <variation key="heightClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="30" y="136" width="240" height="128"/>
                                         </variation>
