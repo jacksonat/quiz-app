@@ -54,7 +54,6 @@ class ViewController: UIViewController {
             // Set the current question to first question
             self.currentQuestion = self.questions[0]
             
-            
             // Call the display question method
             self.displayCurrentQuestion()
             
@@ -81,11 +80,6 @@ class ViewController: UIViewController {
     }
     
     func createAnswerButtons() {
-        
-        // THIS COMMENTED CODE CAN NOW ALL GO
-        // var index: Int
-        // This for loop needs to be rewritten but doing a for in loop is creating problems
-        //for index = 0; index < self.currentQuestion?.answers.count; index += 1 {
         
         for index in 0..<self.currentQuestion!.answers.count {
         
@@ -172,6 +166,55 @@ class ViewController: UIViewController {
     
     }
 
+    @IBAction func changeQuestion(sender: UIButton) {
+    
+        // Dismiss dimmed view and result view
+        self.dimView.alpha = 0
+        self.resultView.alpha = 0
+        
+        // Erase the question and module labels
+        self.questionLabel.text = ""
+        self.moduleLabel.text = ""
+        
+        // Remove all the buttons views
+        
+        for button in self.answerButtonArray {
+        
+            button.removeFromSuperview()
+        
+        }
+        
+        // Empty the button array
+        self.answerButtonArray.removeAll(keepCapacity: false) // takes it back to a zero capacity array
+        
+        // Finding current index of question
+        let indexOfCurrentQuestion: Int? = self.questions.indexOf(currentQuestion!)
+        
+        // Check if it found the current index
+        if let actualCurrentIndex = indexOfCurrentQuestion {
+        
+            // Found the index ... Advance the index
+            
+            let nextQuestionIndex = actualCurrentIndex + 1
+        
+            // Check if nextQuestionIndex is beyond the size of our questions array
+            
+            if nextQuestionIndex < self.questions.count {
+            
+                // Display another questions
+                self.currentQuestion = self.questions[nextQuestionIndex]
+                
+                self.displayCurrentQuestion()
+                
+            } else {
+            
+                // No more questions to display. End the quiz
+            
+            }
+        }
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
