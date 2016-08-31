@@ -125,9 +125,10 @@ class ViewController: UIViewController {
             
             answer.addConstraint(heightConstraint)
             
-            let leftMarginConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.scrollViewContentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0)
+            // Set off screen constraints (see constant) to animate
+            let leftMarginConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.scrollViewContentView, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 400)
             
-            let rightMarginConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.scrollViewContentView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+            let rightMarginConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.scrollViewContentView, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 400)
 
             let topMarginConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.scrollViewContentView, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: CGFloat(101 * index))
             
@@ -140,6 +141,25 @@ class ViewController: UIViewController {
             
             // Add it to the button array
             self.answerButtonArray.append(answer)
+            
+            // Animate the button constraints so they slide in
+            // Manually call update layout
+            self.view.layoutIfNeeded()
+            
+            // Create an incrementer for the delay so buttons slide-in will be staggered
+            let slideInDelay: Double = Double(index) * 0.1
+            
+            UIView.animateWithDuration(0.5, delay: slideInDelay, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                
+                    leftMarginConstraint.constant = 0
+                
+                    rightMarginConstraint.constant = 0
+                
+                    self.view.layoutIfNeeded()
+                
+                }, completion: nil)
+            
+            
         }
         
         // Adjust the height of the content view so that it can scroll if need be
