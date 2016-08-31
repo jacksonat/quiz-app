@@ -24,6 +24,13 @@ class ViewController: UIViewController {
     
     var answerButtonArray: [AnswerButtonView] = [AnswerButtonView]()
     
+    // Create outlet for the top margin constraint so to animate it
+    @IBOutlet weak var resultViewTopMargin: NSLayoutConstraint!
+    
+    
+    
+    
+    
     // Score keeping
     var numberCorrect: Int = 0
     
@@ -171,11 +178,28 @@ class ViewController: UIViewController {
                 
                 }
                 
+                // Set result view top margin constraint to very high value
+                self.resultViewTopMargin.constant = 900
+                
+                self.view.layoutIfNeeded()
+                
                 // Display the dim view and the result view
-                self.dimView.alpha = 1
+                // Add animation to ease the display
+                UIView.animateWithDuration(0.5, animations: {
                 
-                self.resultView.alpha = 1
+                    
+                    // Animate display of result view
+                    self.resultViewTopMargin.constant = 30
+                    
+                    self.view.layoutIfNeeded()
+                    
+                    // Fade in to view
+                    self.dimView.alpha = 1
                 
+                    self.resultView.alpha = 1
+                
+                })
+                    
                 // Set the feedback text
                 self.feedbackLabel.text = self.currentQuestion!.feedback
                 

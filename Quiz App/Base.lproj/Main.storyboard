@@ -202,6 +202,7 @@
                         <outlet property="questionLabel" destination="9Lk-Bb-vO5" id="JoQ-vT-Ced"/>
                         <outlet property="resultTitleLabel" destination="2d5-lz-Idh" id="byg-EZ-q8F"/>
                         <outlet property="resultView" destination="gs7-60-u22" id="RZB-td-PuD"/>
+                        <outlet property="resultViewTopMargin" destination="8FO-hz-yFK" id="1aG-Qo-Pvi"/>
                         <outlet property="scrollViewContentView" destination="9mK-kA-gcs" id="tXK-j6-S0X"/>
                     </connections>
                 </viewController>
