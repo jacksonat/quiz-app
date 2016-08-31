@@ -26,7 +26,7 @@
 		DB16AC261D71918800E8E41A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB16AC291D71918800E8E41A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB16AC2B1D71918800E8E41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB16AC311D71943600E8E41A /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizModel.swift; path = ../QuizModel.swift; sourceTree = "<group>"; };
+		DB16AC311D71943600E8E41A /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		DB16AC331D71948E00E8E41A /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		DB16AC371D72BEEA00E8E41A /* QuestionData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionData.json; sourceTree = "<group>"; };
 		DB16AC3B1D74392200E8E41A /* AnswerButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerButtonView.swift; sourceTree = "<group>"; };
@@ -46,6 +46,7 @@
 		DB16AC131D71918800E8E41A = {
 			isa = PBXGroup;
 			children = (
+				DB16AC311D71943600E8E41A /* QuizModel.swift */,
 				DB16AC1E1D71918800E8E41A /* Quiz App */,
 				DB16AC1D1D71918800E8E41A /* Products */,
 			);
@@ -69,7 +70,6 @@
 				DB16AC261D71918800E8E41A /* Assets.xcassets */,
 				DB16AC281D71918800E8E41A /* LaunchScreen.storyboard */,
 				DB16AC2B1D71918800E8E41A /* Info.plist */,
-				DB16AC311D71943600E8E41A /* QuizModel.swift */,
 				DB16AC331D71948E00E8E41A /* Question.swift */,
 				DB16AC371D72BEEA00E8E41A /* QuestionData.json */,
 			);
