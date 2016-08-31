@@ -10,12 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+/*
     @IBOutlet weak var scrollViewContentView: UIView!
     
     @IBOutlet weak var moduleLabel: UILabel!
     
     @IBOutlet weak var questionLabel: UILabel!
     
+*/
+ 
     let model: QuizModel = QuizModel()
     
     var questions: [Question] = [Question]()
