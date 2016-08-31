@@ -24,9 +24,26 @@ class ViewController: UIViewController {
     
     var answerButtonArray: [AnswerButtonView] = [AnswerButtonView]()
     
+    // Result View IBOutlet properties
+    
+    @IBOutlet weak var resultTitleLabel: UILabel!
+    
+    @IBOutlet weak var feedbackLabel: UILabel!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var resultView: UIView!
+    
+    @IBOutlet weak var dimView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Hide the dim and result views
+        self.dimView.alpha = 0
+        
+        self.resultView.alpha = 0
         
         // Get the questions from the Quiz Model - retrieve the array of Question objects and assign them to our question variable
         self.questions = self.model.getQuestions()
@@ -109,7 +126,7 @@ class ViewController: UIViewController {
         }
         
         // Adjust the height of the content view so that it can scroll if need be
-        let contentViewHeight:NSLayoutConstraint = NSLayoutConstraint(item: self.scrollViewContentView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: CGFloat(self.currentQuestion!.answers.count), constant: 101)
+        let contentViewHeight:NSLayoutConstraint = NSLayoutConstraint(item: self.scrollViewContentView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self.answerButtonArray[0], attribute: NSLayoutAttribute.Height, multiplier: CGFloat(self.answerButtonArray.count-1), constant: 101)
         
         // Add constraint to content view
         self.scrollViewContentView.addConstraint(contentViewHeight)
@@ -133,13 +150,21 @@ class ViewController: UIViewController {
                 
                     // User got it correct
                     print("correct")
+                    self.resultTitleLabel.text = "Correct!"
                 
                 } else {
                 
                     // User got it wrong
                     print("incorrect")
+                    self.resultTitleLabel.text = "Incorrect"
                 
                 }
+                
+                // Display the dim view and the result view
+                self.dimView.alpha = 1
+                self.resultView.alpha = 1
+                self.feedbackLabel.text = self.currentQuestion!.feedback
+                
             
             }
         

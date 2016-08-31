@@ -70,19 +70,19 @@
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekc-Vo-pgY" userLabel="DimView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gs7-60-u22" userLabel="ResultView">
                                 <rect key="frame" x="30" y="30" width="540" height="540"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Correct" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d5-lz-Idh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d5-lz-Idh">
                                         <rect key="frame" x="0.0" y="20" width="540" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Some Feedback" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQF-mc-G6L">
-                                        <rect key="frame" x="20" y="70" width="500" height="400"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Feedback" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQF-mc-G6L">
+                                        <rect key="frame" x="20" y="60" width="500" height="410"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.80072584219858156" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.80410571808510634" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rGm-0j-Iix" secondAttribute="trailing" id="NMV-au-lJV"/>
                                     <constraint firstItem="rGm-0j-Iix" firstAttribute="leading" secondItem="gs7-60-u22" secondAttribute="leading" id="WrZ-IT-pMe"/>
@@ -107,10 +107,10 @@
                                     <constraint firstItem="2d5-lz-Idh" firstAttribute="leading" secondItem="gs7-60-u22" secondAttribute="leading" id="d6A-Ap-93W"/>
                                     <constraint firstAttribute="trailing" secondItem="2d5-lz-Idh" secondAttribute="trailing" id="eU3-7c-Te6"/>
                                     <constraint firstAttribute="trailing" secondItem="FQF-mc-G6L" secondAttribute="trailing" constant="20" id="f1L-FV-q8I"/>
-                                    <constraint firstItem="FQF-mc-G6L" firstAttribute="top" secondItem="2d5-lz-Idh" secondAttribute="bottom" constant="20" id="gPG-Z9-6FK"/>
                                     <constraint firstItem="rGm-0j-Iix" firstAttribute="top" secondItem="FQF-mc-G6L" secondAttribute="bottom" constant="20" id="lgj-gn-1jp"/>
                                     <constraint firstAttribute="bottom" secondItem="rGm-0j-Iix" secondAttribute="bottom" id="lzi-Ph-frf"/>
                                     <constraint firstItem="FQF-mc-G6L" firstAttribute="leading" secondItem="gs7-60-u22" secondAttribute="leading" constant="20" id="otM-YZ-VVN"/>
+                                    <constraint firstItem="FQF-mc-G6L" firstAttribute="top" secondItem="gs7-60-u22" secondAttribute="top" constant="60" id="tFt-it-ryH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -187,8 +187,13 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="dimView" destination="ekc-Vo-pgY" id="XcS-w7-kv5"/>
+                        <outlet property="feedbackLabel" destination="FQF-mc-G6L" id="g1Y-9F-qIz"/>
                         <outlet property="moduleLabel" destination="bQh-Wc-5qc" id="sCb-bu-gU6"/>
+                        <outlet property="nextButton" destination="rGm-0j-Iix" id="UXv-N8-oU0"/>
                         <outlet property="questionLabel" destination="9Lk-Bb-vO5" id="JoQ-vT-Ced"/>
+                        <outlet property="resultTitleLabel" destination="2d5-lz-Idh" id="byg-EZ-q8F"/>
+                        <outlet property="resultView" destination="gs7-60-u22" id="RZB-td-PuD"/>
                         <outlet property="scrollViewContentView" destination="9mK-kA-gcs" id="tXK-j6-S0X"/>
                     </connections>
                 </viewController>
