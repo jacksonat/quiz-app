@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     
     var answerButtonArray: [AnswerButtonView] = [AnswerButtonView]()
     
+    // Score keeping
+    var numberCorrect: Int = 0
+    
     // Result View IBOutlet properties
     
     @IBOutlet weak var resultTitleLabel: UILabel!
@@ -143,22 +146,28 @@ class ViewController: UIViewController {
                 if foundAnswerIndex == self.currentQuestion!.correctAnswerIndex {
                 
                     // User got it correct
-                    print("correct")
                     self.resultTitleLabel.text = "Correct!"
+                    
+                    // Increment user score
+                    self.numberCorrect += 1
                 
                 } else {
                 
                     // User got it wrong
-                    print("incorrect")
                     self.resultTitleLabel.text = "Incorrect"
                 
                 }
                 
                 // Display the dim view and the result view
                 self.dimView.alpha = 1
+                
                 self.resultView.alpha = 1
+                
+                // Set the feedback text
                 self.feedbackLabel.text = self.currentQuestion!.feedback
                 
+                // Set the button text to next
+                self.nextButton.setTitle("Next", forState: UIControlState.Normal)
             
             }
         
@@ -168,11 +177,30 @@ class ViewController: UIViewController {
 
     @IBAction func changeQuestion(sender: UIButton) {
     
+        // Check if button title is "restart", if so restart quiz
+        // Otherwise try to advance to the next question
+        if self.nextButton.titleLabel?.text == "Restart" && self.questions.count > 0 {
+        
+            // Reset the question to the first question
+            self.currentQuestion = self.questions[0]
+            self.displayCurrentQuestion()
+            
+            // Remove the dim view and the result view
+            self.dimView.alpha = 0
+            self.resultView.alpha = 0
+            
+            // Reset the score
+            self.numberCorrect = 0
+            
+            return // exit this method
+        
+        }
+        
         // Dismiss dimmed view and result view
         self.dimView.alpha = 0
         self.resultView.alpha = 0
         
-        // Erase the question and module labels
+        // Erase the question and module labels - only necessary for the clear screen on the final score view, overkill to do it each question perhaps
         self.questionLabel.text = ""
         self.moduleLabel.text = ""
         
@@ -209,6 +237,15 @@ class ViewController: UIViewController {
             } else {
             
                 // No more questions to display. End the quiz
+                self.resultTitleLabel.text = "Quiz finished"
+                
+                self.feedbackLabel.text = String(format: "Your score is %i / %i", self.numberCorrect, self.questions.count)
+                
+                self.nextButton.setTitle("Restart", forState: UIControlState.Normal)
+                
+                // Display the views again
+                self.dimView.alpha = 1
+                self.resultView.alpha = 1
             
             }
         }
