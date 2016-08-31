@@ -16,6 +16,10 @@ class AnswerButtonView: UIView {
        
         super.init(frame: frame)
         
+        // Set background and alpha
+        self.backgroundColor = UIColor.darkGrayColor()
+        self.alpha = 0.5
+        
         // Add the label to the view
         self.addSubview(self.answerLabel)
         

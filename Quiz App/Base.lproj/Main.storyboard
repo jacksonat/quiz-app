@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionbg" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-ng-8rd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkN-Ai-nKy" userLabel="QuestionView">
                                 <rect key="frame" x="0.0" y="0.0" width="225" height="29.5"/>
                                 <subviews>
@@ -27,14 +30,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Module: 4 Lesson 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-Wc-5qc">
-                                        <rect key="frame" x="91" y="5" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Module: 4 Lesson 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQh-Wc-5qc">
+                                        <rect key="frame" x="5" y="8" width="215" height="16.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="9Lk-Bb-vO5" firstAttribute="top" secondItem="AkN-Ai-nKy" secondAttribute="top" id="4C0-Dd-q2q"/>
                                     <constraint firstAttribute="bottom" secondItem="9Lk-Bb-vO5" secondAttribute="bottom" id="COB-ba-SNK"/>
@@ -53,7 +55,6 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9mK-kA-gcs" secondAttribute="bottom" id="2DG-un-bOb"/>
                                     <constraint firstItem="9mK-kA-gcs" firstAttribute="top" secondItem="bP5-DP-efS" secondAttribute="top" id="466-Zb-dad"/>
@@ -124,9 +125,12 @@
                             <constraint firstAttribute="bottom" secondItem="gs7-60-u22" secondAttribute="bottom" constant="30" id="7J1-xW-gR1"/>
                             <constraint firstItem="gs7-60-u22" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="8FO-hz-yFK"/>
                             <constraint firstItem="gs7-60-u22" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="8mf-64-j5g"/>
+                            <constraint firstItem="UbA-ng-8rd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Ok-qd-XpX"/>
                             <constraint firstAttribute="bottom" secondItem="ekc-Vo-pgY" secondAttribute="bottom" id="AuO-GW-wFF"/>
+                            <constraint firstAttribute="trailing" secondItem="UbA-ng-8rd" secondAttribute="trailing" id="KPi-Gc-zh0"/>
                             <constraint firstItem="bP5-DP-efS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kqw-PS-L1u"/>
                             <constraint firstItem="bP5-DP-efS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LgD-Di-S1y"/>
+                            <constraint firstItem="UbA-ng-8rd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lpo-bv-ZnK"/>
                             <constraint firstItem="AkN-Ai-nKy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MGO-Ga-nYm"/>
                             <constraint firstAttribute="bottom" secondItem="bP5-DP-efS" secondAttribute="bottom" id="MTt-2T-b3T"/>
                             <constraint firstAttribute="bottom" secondItem="AkN-Ai-nKy" secondAttribute="bottom" id="QE2-21-YlX"/>
@@ -134,6 +138,7 @@
                             <constraint firstItem="AkN-Ai-nKy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="SAh-u2-cds"/>
                             <constraint firstItem="ekc-Vo-pgY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UAr-fZ-RqD"/>
                             <constraint firstItem="AkN-Ai-nKy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Y3T-ku-eG0"/>
+                            <constraint firstAttribute="bottom" secondItem="UbA-ng-8rd" secondAttribute="bottom" id="aP4-6L-12c"/>
                             <constraint firstItem="ekc-Vo-pgY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aYN-V7-ud9"/>
                             <constraint firstItem="AkN-Ai-nKy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cLc-3v-iLv"/>
                             <constraint firstItem="bP5-DP-efS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="ewM-H1-kjA"/>
@@ -205,4 +210,7 @@
             <point key="canvasLocation" x="228" y="644"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="questionbg" width="320" height="568"/>
+    </resources>
 </document>
