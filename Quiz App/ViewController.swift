@@ -81,6 +81,11 @@ class ViewController: UIViewController {
             // Place it into the content view
             self.scrollViewContentView.addSubview(answer)
             
+            // Add a tap gesture recognizer
+            let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "answerTapped:")
+            
+            answer.addGestureRecognizer(tapGesture)
+            
             // Add constraints depending on what number button it is
             let heightConstraint:NSLayoutConstraint = NSLayoutConstraint(item: answer, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
             
@@ -108,6 +113,36 @@ class ViewController: UIViewController {
         
         // Add constraint to content view
         self.scrollViewContentView.addConstraint(contentViewHeight)
+    }
+    
+    func answerTapped(gesture: UITapGestureRecognizer) {
+    
+        // Get access to the answer button that was tapped
+        let answerButtonThatWasTapped: AnswerButtonView? = gesture.view as! AnswerButtonView
+        
+        if let actualButton = answerButtonThatWasTapped {
+        
+            // Find out which index it was
+            let answerTappedIndex: Int? = self.answerButtonArray.indexOf(actualButton)
+            
+            if let foundAnswerIndex = answerTappedIndex {
+            
+                // If we found the index, compare the answer index that was tapped versus the correct index from the question
+                
+                if foundAnswerIndex == self.currentQuestion!.correctAnswerIndex {
+                
+                    // User got it correct
+                
+                } else {
+                
+                    // User got it wrong
+                
+                }
+            
+            }
+        
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
