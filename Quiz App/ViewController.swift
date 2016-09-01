@@ -304,6 +304,9 @@ class ViewController: UIViewController {
             } else {
             
                 // No more questions to display. End the quiz
+                self.resultView.backgroundColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 0.8)
+                self.nextButton.backgroundColor = UIColor.darkGrayColor()
+                
                 self.resultTitleLabel.text = "Quiz finished"
                 
                 self.feedbackLabel.text = String(format: "Your score is %i / %i", self.numberCorrect, self.questions.count)
