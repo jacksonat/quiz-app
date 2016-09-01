@@ -322,6 +322,93 @@ class ViewController: UIViewController {
     
     }
     
+    func saveState() {
+    
+        let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // Save the current score, current question and whether or not the result view is visible
+        userDefaults.setInteger(self.numberCorrect, forKey: "numberCorrect")
+        
+        // Find the current question index
+        let indexOfCurrentQuestion: Int? = self.questions.indexOf(self.currentQuestion!)
+        
+        if let actualIndex = indexOfCurrentQuestion {
+        
+            userDefaults.setInteger(actualIndex, forKey: "questionIndex")
+        
+        }
+        
+        // Set true if result view is visible else set false
+        userDefaults.setBool(self.resultView.alpha == 1, forKey: "resultViewAlpha")
+        
+        // Save the title of the result view
+        userDefaults.setObject(self.resultTitleLabel.text, forKey: "resultViewTitle")
+    
+        // Write the changes to disk
+        userDefaults.synchronize()
+        
+    }
+    
+    func loadState() {
+    
+        let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // Load the saved question into the current question
+        let currentQuestionIndex = userDefaults.integerForKey("questionIndex")
+        
+        // Check that the saved index is not beyond the number of questions
+        if currentQuestionIndex < self.questions.count {
+            
+            self.currentQuestion = self.questions[currentQuestionIndex]
+        
+        }
+        
+        // Load the score
+        let score: Int = userDefaults.integerForKey("numberCorrect")
+        
+        self.numberCorrect = score
+        
+        // Load the result view visibility
+        let isResultViewVisible = userDefaults.boolForKey("resultViewAlpha")
+        
+        if isResultViewVisible == true {
+        
+            // We should display the result view
+            self.feedbackLabel.text = self.currentQuestion?.feedback
+            
+            // Retreive the title text
+            let title: String? = userDefaults.objectForKey("resultViewTitle") as! String?
+            
+            if let actualTitle = title {
+            
+                resultTitleLabel.text = actualTitle
+                
+                if actualTitle == "Correct" {
+                
+                    // Change background and button colour
+                    self.resultView.backgroundColor = UIColor(red: 43/255, green: 85/255, blue: 51/255, alpha: 0.8)
+                    
+                    self.nextButton.backgroundColor = UIColor(red: 28/255, green: 85/255, blue: 40/255, alpha: 1)
+                
+                } else if actualTitle == "Incorrect" {
+                
+                    // Change background and button colour
+                    self.resultView.backgroundColor = UIColor(red: 85/255, green: 19/255, blue: 12/255, alpha: 0.8)
+                    
+                    self.nextButton.backgroundColor = UIColor(red: 58/255, green: 0/255, blue: 16/255, alpha: 1)
+                
+                }
+            
+            }
+            
+            dimView.alpha = 1
+            
+            resultView.alpha = 1
+        
+        }
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -329,4 +416,17 @@ class ViewController: UIViewController {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
