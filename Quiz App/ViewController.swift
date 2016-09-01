@@ -64,6 +64,9 @@ class ViewController: UIViewController {
             // Set the current question to first question
             self.currentQuestion = self.questions[0]
             
+            // Load state to load the previously saved question if different
+            self.loadState()
+            
             // Call the display question method
             self.displayCurrentQuestion()
             
@@ -97,6 +100,9 @@ class ViewController: UIViewController {
             
             // Create and display the answer button views
             self.createAnswerButtons()
+            
+            // Save state each time question is displayed
+            self.saveState()
             
         }
     
@@ -229,6 +235,9 @@ class ViewController: UIViewController {
                     self.resultView.alpha = 1
                 
                 })
+                
+                // Save state every time answer is selected
+                self.saveState()
                     
                 // Set the feedback text
                 self.feedbackLabel.text = self.currentQuestion!.feedback
@@ -303,6 +312,8 @@ class ViewController: UIViewController {
                 
             } else {
             
+                
+                
                 // No more questions to display. End the quiz
                 self.resultView.backgroundColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 0.8)
                 self.nextButton.backgroundColor = UIColor.darkGrayColor()
