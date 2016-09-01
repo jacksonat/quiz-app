@@ -312,7 +312,8 @@ class ViewController: UIViewController {
                 
             } else {
             
-                
+                // Erase any saved state so user resumes at question 0 rather than end
+                self.eraseState()
                 
                 // No more questions to display. End the quiz
                 self.resultView.backgroundColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 0.8)
@@ -330,6 +331,22 @@ class ViewController: UIViewController {
             
             }
         }
+    
+    }
+    
+    func eraseState() {
+    
+        let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        userDefaults.setInteger(0, forKey: "nuberCorrect")
+        
+        userDefaults.setInteger(0, forKey: "questionIndex")
+        
+        userDefaults.setBool(false, forKey: "resultViewAlpha")
+        
+        userDefaults.setObject("", forKey: "resultViewTitle")
+        
+        userDefaults.synchronize()
     
     }
     
